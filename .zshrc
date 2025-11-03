@@ -152,6 +152,11 @@ if [[ $TERM == "xterm-ghostty" ]]; then
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 fi
 
+# Start ssh-agent if not running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" > /dev/null
+fi
+
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
