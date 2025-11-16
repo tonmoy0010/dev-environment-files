@@ -129,6 +129,33 @@ After running the installation script:
   brew install --cask alacritty
   ```
 
+## Troubleshooting
+
+### GPG Signing Errors in Git (Ghostty Terminal)
+
+**Problem**: When trying to make signed Git commits in Ghostty terminal, cannot enter passphrase.
+
+**Solution**: Configure GPG to use `pinentry-tty` for terminal-based passphrase entry.
+
+1. Create or edit the GPG agent configuration file:
+   ```bash
+   echo "pinentry-program $(which pinentry-tty)" > ~/.gnupg/gpg-agent.conf
+   ```
+
+2. Restart the GPG agent to apply the configuration:
+   ```bash
+   gpgconf --kill gpg-agent
+   gpg-agent --daemon
+   ```
+
+3. Reload your shell configuration:
+   ```bash
+   source ~/.zshrc
+   ```
+   Or close and reopen your Ghostty terminal.
+
+The GPG agent will now prompt for your passphrase directly in the terminal when making signed commits.
+
 ## Manual Package Installation
 
 ### macOS
