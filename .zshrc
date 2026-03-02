@@ -82,7 +82,6 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   web-search
-  you-should-use          # reminds you of aliases
   extract                 # smart archive extraction
   sudo                    # press ESC twice to add sudo
   copypath                # copy current path to clipboard
